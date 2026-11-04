@@ -1,0 +1,36 @@
+[
+  {
+    "question": "What is the difference between @State and @Binding in SwiftUI?",
+    "expected_doc": "swiftui-state-binding"
+  },
+  {
+    "question": "How does Task cancellation work in Swift concurrency?",
+    "expected_doc": "swift-concurrency"
+  },
+  {
+    "question": "Xcode says No such module, how do I fix it?",
+    "expected_doc": "xcode-no-such-module"
+  },
+  {
+    "question": "How do I use NavigationStack and navigationDestination in SwiftUI?",
+    "expected_doc": "swiftui-navigation"
+  },
+  {
+    "question": "What is App Transport Security and when can I add an exception?",
+    "expected_doc": "app-transport-security"
+  },
+  {
+    "question": "How do @Model and @Query work in SwiftData?",
+    "expected_doc": "swiftdata-model"
+  },
+  {
+    "question": "How do I build an Android app with Jetpack Compose?",
+    "expected_doc": null,
+    "must_abstain": true
+  },
+  {
+    "question": "How do I create a WPF window in C# on Windows?",
+    "expected_doc": null,
+    "must_abstain": true
+  }
+]

@@ -1,0 +1,4 @@
+# Runtime has no hard dependencies on purpose: TF-IDF and the
+# OpenAI-compatible LLM boundary use only the standard library.
+# Dev / test only:
+pytest>=8
