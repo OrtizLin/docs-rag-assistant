@@ -17,6 +17,39 @@ STOPWORDS = {
 def _tokens(text):
     return [t for t in re.findall(r"[a-z0-9_]+", text.lower()) if t not in STOPWORDS]
 
+def _cosine(a, b):
+    dot = sum(x * y for x, y in zip(a, b))
+    na = math.sqrt(sum(x * x for x in a))
+    nb = math.sqrt(sum(y * y for y in b))
+    if na == 0 or nb == 0:
+        return 0.0
+    return dot / (na * nb)
+
+class EmbeddingRetriever:
+    """Model-embedding retrieval with the same output shape as TF-IDF:
+    retrieve_top(documents, query, top_k) -> list of (doc, score).
+    Document vectors are computed once in __init__; the query is
+    embedded per call. Query and documents must use the same model.
+    """
+
+    def __init__(self, documents, embed=None):
+        from .embeddings import embed_texts
+        self.docs = list(documents)
+        self.embed = embed or embed_texts
+        texts = [d.get("title", "") + "\n" + d.get("text", "") for d in self.docs]
+        self.vectors = self.embed(texts) if texts else []
+
+    def retrieve_top(self, query, top_k=3):
+        if not self.docs or not query.strip():
+            return []
+        qvec = self.embed([query])[0]
+        scored = [(d, _cosine(qvec, v)) for d, v in zip(self.docs, self.vectors)]
+        scored.sort(key=lambda x: x[1], reverse=True)
+        return scored[:top_k]
+
+def retrieve_top_embedding(documents, query, embed=None, top_k=3):
+    return EmbeddingRetriever(documents, embed=embed).retrieve_top(query, top_k=top_k)
+
 def retrieve_top(documents, query, top_k=3):
     docs = list(documents)
     if not docs or not query.strip():

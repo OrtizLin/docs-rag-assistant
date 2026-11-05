@@ -24,6 +24,30 @@
     "expected_doc": "swiftdata-model"
   },
   {
+    "question": "How do I make a SwiftUI List fast with a large data set?",
+    "expected_doc": "swiftui-list-performance"
+  },
+  {
+    "question": "Xcode code signing failed, what is a provisioning profile and certificate?",
+    "expected_doc": "xcode-code-signing"
+  },
+  {
+    "question": "How do I submit my app to the App Store with TestFlight?",
+    "expected_doc": "app-store-submission"
+  },
+  {
+    "question": "How does Core Data lightweight migration work when the model changes?",
+    "expected_doc": "core-data-migration"
+  },
+  {
+    "question": "What is Sendable and strict concurrency checking in Swift 6 language mode?",
+    "expected_doc": "swift-6-strict-concurrency"
+  },
+  {
+    "question": "How do I use Instruments Time Profiler and Leaks to debug performance?",
+    "expected_doc": "xcode-instruments-debugging"
+  },
+  {
     "question": "How do I build an Android app with Jetpack Compose?",
     "expected_doc": null,
     "must_abstain": true
