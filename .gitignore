@@ -4,3 +4,4 @@ __pycache__/
 *.json
 !eval/cases.json
 !eval/heldout_cases.json
+!eval/heldout_cases.json
