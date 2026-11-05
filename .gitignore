@@ -3,3 +3,4 @@ __pycache__/
 .env
 *.json
 !eval/cases.json
+!eval/heldout_cases.json
